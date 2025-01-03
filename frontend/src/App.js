@@ -26,7 +26,7 @@ function App() {
 
     const fetchMessages = async () => {
         try {
-            const response = await axios.get('https://chat-ttud.vercel.app/api/messages');
+            const response = await axios.get('https://baka-be.vercel.app/api/messages');
             setMessages(response.data);
         } catch (error) {
             console.error('Error fetching messages:', error);
@@ -36,7 +36,7 @@ function App() {
     const handleInitialChoice = async (shouldDelete) => {
         if (shouldDelete) {
             try {
-                await axios.delete('https://chat-ttud.vercel.app/api/messages', {
+                await axios.delete('https://baka-be.vercel.app/api/messages', {
                     data: { password }
                 });
                 setPassword('');
@@ -60,7 +60,7 @@ function App() {
         if (!newMessage.trim()) return;
 
         try {
-            await axios.post('https://chat-ttud.vercel.app/api/messages', {
+            await axios.post('https://baka-be.vercel.app/api/messages', {
                 content: newMessage
             });
             setNewMessage('');
@@ -72,7 +72,7 @@ function App() {
 
     const handleDeleteMessage = async (id) => {
         try {
-            await axios.delete(`https://chat-ttud.vercel.app/api/messages/${id}`);
+            await axios.delete(`https://baka-be.vercel.app/api/messages/${id}`);
             fetchMessages();
         } catch (error) {
             console.error('Error deleting message:', error);
@@ -102,8 +102,8 @@ function App() {
                 {showInitialModal && (
                     <div className="modal-overlay">
                         <div className="modal">
-                            <h2>Welcome to Self Message App</h2>
-                            <p>Would you like to delete all previous messages?</p>
+                            <h2>.</h2>
+                            <p>ディリト</p>
                             {password !== '' && (
                                 <input
                                     type="password"
@@ -115,12 +115,12 @@ function App() {
                             <div className="modal-buttons">
                                 {password === '' ? (
                                     <>
-                                        <button onClick={() => setPassword('1')}>Yes, delete all</button>
-                                        <button onClick={() => handleInitialChoice(false)}>No, keep messages</button>
+                                        <button onClick={() => setPassword('1')}>はい</button>
+                                        <button onClick={() => handleInitialChoice(false)}>いいえ</button>
                                     </>
                                 ) : (
                                     <>
-                                        <button onClick={() => handleInitialChoice(true)}>Confirm Delete</button>
+                                        <button onClick={() => handleInitialChoice(true)}>確認</button>
                                         <button onClick={() => handleInitialChoice(false)}>Cancel</button>
                                     </>
                                 )}
@@ -135,12 +135,12 @@ function App() {
     return (
         <div className="App">
             <header>
-                <h1>Self Message App</h1>
+                <h1>ばか</h1>
                 <button 
                     className="clear-all-btn"
                     onClick={() => setShowDeleteModal(true)}
                 >
-                    Clear All Messages
+                    8386
                 </button>
             </header>
             
